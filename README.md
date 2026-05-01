@@ -126,3 +126,5 @@ Follow these steps to run VoteSmart locally on your machine:
 ---
 
 *Designed to make citizens more informed, confident, and engaged.*
+
+Built with ❤️ by Srija Bhattacharya.
