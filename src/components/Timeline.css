@@ -1,0 +1,114 @@
+.timeline-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-left: 1rem;
+}
+
+.timeline-item {
+  display: flex;
+  gap: 1.5rem;
+  position: relative;
+}
+
+.timeline-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 32px;
+}
+
+.timeline-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  box-shadow: 0 0 0 4px var(--bg-color);
+  transition: all 0.3s;
+}
+
+.timeline-item.expanded .timeline-dot {
+  transform: scale(1.1);
+  box-shadow: 0 0 0 4px var(--card-bg);
+}
+
+.timeline-line {
+  width: 2px;
+  flex: 1;
+  background-color: var(--border-color);
+  margin-top: 4px;
+  margin-bottom: -1rem;
+  min-height: 40px;
+}
+
+.timeline-content {
+  flex: 1;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 1rem;
+}
+
+.timeline-content:hover {
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.timeline-item.expanded .timeline-content {
+  border-color: var(--primary-color);
+  background-color: var(--card-bg);
+}
+
+.timeline-date {
+  font-size: 0.85rem;
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.timeline-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.timeline-title-row h3 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.timeline-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, margin-top 0.4s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+
+.timeline-item.expanded .timeline-body {
+  max-height: 200px;
+  margin-top: 1rem;
+  opacity: 1;
+}
+
+.timeline-body p {
+  color: var(--text-color);
+  opacity: 0.8;
+  line-height: 1.6;
+}
