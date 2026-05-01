@@ -42,6 +42,53 @@ Interactive, 3D-flipping flashcards for mastering key election terminology like 
 
 ---
 
+## 🏗️ Architecture & Diagrams
+
+### Application Architecture
+```mermaid
+graph TD
+    User([User / Citizen]) --> App[VoteSmart React App]
+    
+    subgraph Frontend Features
+        App --> Chat[AI Chat Assistant]
+        App --> Timeline[Interactive Timeline]
+        App --> Simulator[Scenario Simulator]
+        App --> Quiz[Gamified Quiz]
+        App --> Flashcards[Flashcards]
+    end
+    
+    subgraph Application State
+        App -.-> Theme[Dark/Light Mode Context]
+        App -.-> Lang[Bilingual English/Hindi Context]
+    end
+    
+    subgraph Deployment Infrastructure
+        CloudRun[Google Cloud Run] --> Nginx[Nginx Web Server]
+        Nginx --> App
+    end
+```
+
+### User Workflow
+```mermaid
+flowchart LR
+    Start([Open App]) --> Home{Select Module}
+    
+    Home -->|Ask Questions| C[Chat Assistant]
+    Home -->|Learn Steps| T[Timeline]
+    Home -->|Test Knowledge| Q[Quiz]
+    Home -->|Practice Scenarios| S[Simulator]
+    Home -->|Memorize Terms| F[Flashcards]
+    
+    C --> LangToggle[Toggle Hindi/English]
+    T --> LangToggle
+    Q --> LangToggle
+    S --> LangToggle
+    F --> LangToggle
+    
+    LangToggle --> End([Learn & Engage])
+```
+
+---
 ## 🛠️ Tech Stack
 
 - **Frontend**: React 19, TypeScript, Vite
